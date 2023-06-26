@@ -22,7 +22,7 @@ export default function AffixDemo1() {
         </Affix>
       )}
       <div style={{ marginTop: '30px' }}></div>
-      <Button width={200} handleClick={() => setAlign(align == 'bottom' ? 'top' : 'bottom')}>
+      <Button width={200} onClick={() => setAlign(align == 'bottom' ? 'top' : 'bottom')}>
         toggle to {align == 'bottom' ? 'top' : 'bottom'}
       </Button>
 
