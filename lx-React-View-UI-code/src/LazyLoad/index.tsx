@@ -1,4 +1,4 @@
-import React, { FC, memo, useEffect, useState, createRef } from 'react';
+import React, {FC, memo, useEffect, useState, createRef} from 'react';
 
 interface LazyLoadProps {
   children?: any;
@@ -10,7 +10,7 @@ interface LazyLoadProps {
 }
 
 const LazyLoad: FC<LazyLoadProps> = (props) => {
-  const { children, delay } = props;
+  const {children, delay} = props;
   const [showEl, setShowEl] = useState(false);
   const lazyRef = createRef();
   let io: IntersectionObserver; //观察者
