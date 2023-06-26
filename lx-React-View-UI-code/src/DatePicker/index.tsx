@@ -1,4 +1,4 @@
-import React, { FC, memo, useState, useEffect, useCallback } from 'react';
+import React, {FC, memo, useState, useEffect, useCallback} from 'react';
 import RangeDatePicker from './rangeDatePicker';
 import {
   FieldTimeOutlined,
@@ -39,6 +39,7 @@ interface DatePickerProps {
    */
   handleChange?: Function;
 }
+
 const monthList = [
   '一月',
   '二月',
@@ -55,7 +56,7 @@ const monthList = [
 ];
 
 const DatePicker: FC<DatePickerProps> = (props) => {
-  const { type, showRange, showClear, align, handleChange } = props;
+  const {type, showRange, showClear, align, handleChange} = props;
 
   const [showTimeDialog, setShowTimeDialog] = useState(false); //显示dialog
   const [renderShowDialog, setRenderShowDialog] = useState(false);
@@ -82,7 +83,7 @@ const DatePicker: FC<DatePickerProps> = (props) => {
     });
   }, []);
   useEffect(() => {
-    const { year, month } = nowDate;
+    const {year, month} = nowDate;
     const firstDay = new Date(`${year}/${month}/1`).getDay();
     const totalDay = new Date(year, month, 0).getDate();
     const dayList = new Array(firstDay).fill('');
@@ -102,7 +103,7 @@ const DatePicker: FC<DatePickerProps> = (props) => {
     if (!day) return;
     setNowDate((old) => {
       old.day = day;
-      return { ...old };
+      return {...old};
     });
     handleChange && handleChange(`${nowDate.year}-${nowDate.month}-${nowDate.day}`);
     setShowTimeDialog(false);
@@ -117,12 +118,12 @@ const DatePicker: FC<DatePickerProps> = (props) => {
       old.year = today.getFullYear();
       old.month = today.getMonth() + 1;
       old.day = today.getDate();
-      return { ...old };
+      return {...old};
     });
   };
   const changeToNextMonth = () => {
     //改变到下个月
-    const renderDate = { ...nowDate };
+    const renderDate = {...nowDate};
     if (renderDate.month == 12) {
       //12月新年
       renderDate.year += 1;
@@ -134,7 +135,7 @@ const DatePicker: FC<DatePickerProps> = (props) => {
     setNowDate(renderDate);
   };
   const changeToPreMonth = () => {
-    const renderDate = { ...nowDate };
+    const renderDate = {...nowDate};
     if (renderDate.month == 1) {
       //12月新年
       renderDate.year -= 1;
@@ -149,7 +150,7 @@ const DatePicker: FC<DatePickerProps> = (props) => {
     //改变月份
     setNowDate((old) => {
       old.month = month;
-      return { ...old };
+      return {...old};
     });
     setPickStatus(0);
   };
@@ -157,7 +158,7 @@ const DatePicker: FC<DatePickerProps> = (props) => {
     //改变年份
     setNowDate((old) => {
       old.year = year;
-      return { ...old };
+      return {...old};
     });
     setPickStatus(0);
   };
@@ -176,12 +177,12 @@ const DatePicker: FC<DatePickerProps> = (props) => {
             old.year = Number(inputValue[0]);
             old.month = Number(inputValue[1]);
             old.day = Number(inputValue[2]);
-            return { ...old };
+            return {...old};
           });
           handleChange &&
-            handleChange(
-              `${Number(inputValue[0])}-${Number(inputValue[1])}-${Number(inputValue[2])}`,
-            );
+          handleChange(
+            `${Number(inputValue[0])}-${Number(inputValue[1])}-${Number(inputValue[2])}`,
+          );
         }
       }
       setIptValue(null);
@@ -200,7 +201,7 @@ const DatePicker: FC<DatePickerProps> = (props) => {
           old.year = Number(inputValue[0]);
           old.month = Number(inputValue[1]);
           old.day = Number(inputValue[2]);
-          return { ...old };
+          return {...old};
         });
       }
     }
@@ -223,7 +224,7 @@ const DatePicker: FC<DatePickerProps> = (props) => {
       (old.year = new Date().getFullYear()),
         (old.month = new Date().getMonth() + 1),
         (old.day = new Date().getDate());
-      return { ...old };
+      return {...old};
     });
     setIptValue(null);
   };
@@ -296,7 +297,7 @@ const DatePicker: FC<DatePickerProps> = (props) => {
             {nowDate.year}-{nowDate.month}-{nowDate.day}
           </span>
           <div className="icon" style={showTimeDialog ? activeStyle.icon : {}}>
-            <FieldTimeOutlined />
+            <FieldTimeOutlined/>
           </div>
         </div>
       )}
@@ -312,7 +313,7 @@ const DatePicker: FC<DatePickerProps> = (props) => {
           />
           {showClear && (
             <CloseOutlined
-              style={{ position: 'relative', right: '15px', fontSize: '12px', cursor: 'pointer' }}
+              style={{position: 'relative', right: '15px', fontSize: '12px', cursor: 'pointer'}}
               onClick={clearDate}
             />
           )}
@@ -321,14 +322,14 @@ const DatePicker: FC<DatePickerProps> = (props) => {
       {renderShowDialog && (
         <div
           className="check-box"
-          style={{ ...(showTimeDialog ? activeStyle.checkBox : {}), ...alignFn() } as any}
+          style={{...(showTimeDialog ? activeStyle.checkBox : {}), ...alignFn()} as any}
           onClick={(e) => e.stopPropagation()}
         >
           <div className="top-bar">
             <b className="year" onClick={() => setPickStatus(2)}>
               {nowDate.year}
             </b>
-            <b className="month" onClick={() => setPickStatus(1)} style={{ marginRight: '20px' }}>
+            <b className="month" onClick={() => setPickStatus(1)} style={{marginRight: '20px'}}>
               {nowDate.month}
             </b>
             <div
@@ -340,7 +341,7 @@ const DatePicker: FC<DatePickerProps> = (props) => {
                 }, 300);
               }}
             >
-              <CloseOutlined />
+              <CloseOutlined/>
             </div>
           </div>
           <div className="date-content">
@@ -393,11 +394,11 @@ const DatePicker: FC<DatePickerProps> = (props) => {
             {pickStatus == 2 && (
               <div className="year-toggle-box">
                 <div className="toggle-bar">
-                  <DoubleLeftOutlined style={{ cursor: 'pointer' }} onClick={setPreGroupYear} />
+                  <DoubleLeftOutlined style={{cursor: 'pointer'}} onClick={setPreGroupYear}/>
                   <span>
                     {yearList[0]}-{yearList[8]}
                   </span>
-                  <DoubleRightOutlined style={{ cursor: 'pointer' }} onClick={setNextGroupYear} />
+                  <DoubleRightOutlined style={{cursor: 'pointer'}} onClick={setNextGroupYear}/>
                 </div>
                 <div className="list">
                   {yearList.map((m: number) => {
@@ -421,11 +422,11 @@ const DatePicker: FC<DatePickerProps> = (props) => {
               <>
                 <div className="today" onClick={setToToday}>
                   <span>今天</span>
-                  <CheckOutlined />
+                  <CheckOutlined/>
                 </div>
                 <div className="toggle-month">
-                  <LeftOutlined style={{ marginRight: '5px' }} onClick={changeToPreMonth} />
-                  <RightOutlined onClick={changeToNextMonth} />
+                  <LeftOutlined style={{marginRight: '5px'}} onClick={changeToPreMonth}/>
+                  <RightOutlined onClick={changeToNextMonth}/>
                 </div>
               </>
             )}
@@ -433,7 +434,7 @@ const DatePicker: FC<DatePickerProps> = (props) => {
               <>
                 <div></div>
                 <div className="go-back-icon" onClick={() => setPickStatus(0)}>
-                  <RollbackOutlined />
+                  <RollbackOutlined/>
                 </div>
               </>
             )}
