@@ -40,22 +40,7 @@ const ScrollToTop: React.FC<ScrollToTopProps> = (props) => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          style={{
-            position: 'fixed',
-            bottom: '20px',
-            right: '20px',
-            color: '#ffffff',
-            backgroundColor: '#3742fa',
-            width: '100px',
-            height: '40px',
-            margin: 0,
-            padding: 0,
-            border: 'none',
-            outline: "none",
-            borderRadius: '10px',
-            fontSize: '18px',
-            cursor: "pointer"
-          }}
+          style={style}
           {...restProps}
         >
           返回顶部
@@ -66,6 +51,11 @@ const ScrollToTop: React.FC<ScrollToTopProps> = (props) => {
 };
 ScrollToTop.defaultProps = {
   showUnder: 300,
-  style:{}
+  style: {
+    position: 'fixed',
+    bottom: '20px',
+    right: '20px',
+    cursor: "pointer"
+  }
 }
 export default ScrollToTop;

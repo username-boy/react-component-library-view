@@ -2,12 +2,12 @@ import React from 'react';
 import ScrollToTop from '../index';
 
 const App: React.FC = () => {
-  const Style:React.CSSProperties = {
+  const Style: React.CSSProperties = {
     position: 'fixed',
-    bottom: '200px',
+    bottom: '20px',
     right: '20px',
     color: '#ffffff',
-    backgroundColor: '#fd003d',
+    backgroundColor: '#4994c4',
     width: '100px',
     height: '40px',
     margin: 0,
@@ -22,7 +22,7 @@ const App: React.FC = () => {
     <div>
       <h1>一键返回顶部</h1>
       <div style={{height: '2000px'}}>以下是滚动的内容</div>
-      <ScrollToTop showUnder={500} style={Style}/>
+      <ScrollToTop showUnder={1000} style={Style}/>
     </div>
   );
 };

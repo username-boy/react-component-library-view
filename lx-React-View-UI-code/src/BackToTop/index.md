@@ -25,4 +25,8 @@ group:
 
 <code src="./demos/index1.tsx"/>
 
+## 自定义样式和位置
+
+<code src="./demos/index2.tsx"/>
+
 <API/>
