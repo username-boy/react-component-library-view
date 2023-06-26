@@ -98,5 +98,4 @@ const Button: FC<ButtonProps & NativeButtonProps> = memo((props) => {
     </div>
   );
 });
-
 export default Button;
