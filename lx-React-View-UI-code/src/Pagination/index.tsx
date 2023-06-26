@@ -1,6 +1,6 @@
-import React, { useState, useEffect, FC, useMemo, memo } from 'react';
-import { EllipsisOutlined, LeftOutlined, RightOutlined, DownOutlined } from '@ant-design/icons';
-import { Select } from '..';
+import React, {useState, useEffect, FC, useMemo, memo} from 'react';
+import {EllipsisOutlined, LeftOutlined, RightOutlined, DownOutlined} from '@ant-design/icons';
+import {Select} from '..';
 import './index.module.less';
 
 interface PaginationProps {
@@ -30,8 +30,9 @@ interface PaginationProps {
    */
   changePageCallback: Function;
 }
+
 const Pagination: FC<PaginationProps> = (props) => {
-  const { changePageCallback, total, pageSizeOptions, showJumpInput, showSizeChanger } = props;
+  const {changePageCallback, total, pageSizeOptions, showJumpInput, showSizeChanger} = props;
 
   const [nowIndex, setNowIndex] = useState<number>(1);
   const [pageRenderArray, setPageRenderArray] = useState<Array<number>>([]);
@@ -220,14 +221,14 @@ const Pagination: FC<PaginationProps> = (props) => {
   return (
     <div className="pagination">
       <div className={nowIndex === 1 ? `prev disabled` : `prev`} onClick={prevPage}>
-        <LeftOutlined />
+        <LeftOutlined/>
       </div>
       <div className={nowIndex === 1 ? `actived numberBox` : `numberBox`} onClick={changePage(1)}>
         1
       </div>
       {nowIndex > 4 && totalPage > 6 && (
         <div className="numberBox" onClick={prevFivePage}>
-          <EllipsisOutlined />
+          <EllipsisOutlined/>
         </div>
       )}
 
@@ -260,7 +261,7 @@ const Pagination: FC<PaginationProps> = (props) => {
         })}
       {totalPage - nowIndex >= 4 && totalPage > 6 && (
         <div className="numberBox" onClick={nextFivePage}>
-          <EllipsisOutlined />
+          <EllipsisOutlined/>
         </div>
       )}
       {totalPage > 1 && (
@@ -275,34 +276,9 @@ const Pagination: FC<PaginationProps> = (props) => {
         className={nowIndex === totalPage || totalPage <= 1 ? `next disabled` : `next`}
         onClick={nextPage}
       >
-        <RightOutlined />
+        <RightOutlined/>
       </div>
-      {/* {
-                Array.isArray(pageSizeOptions) && showSizeChanger
-                &&
-                <div className={pageSizeSelect} onClick={() => setShowSizeOptions(!showSizeOptions)}>
-                    <>
-                        <span className={size}>{sizePage} 条/页</span>
-                        <DownOutlined />
 
-                    </>
-                    {
-                        showSizeOptions
-                        &&
-                        <div className={options}>
-                            {
-                                pageSizeOptions.map(s => {
-                                    return (
-                                        <div key={s as number} className={option} onClick={() => setSizePage(s as number)}>
-                                            {s} 条/页
-                                        </div>
-                                    )
-                                })
-                            }
-                        </div>
-                    }
-                </div>
-            } */}
       {Array.isArray(pageSizeOptions) && showSizeChanger && (
         <Select
           option={pageSizeOptions.map((item) => {
