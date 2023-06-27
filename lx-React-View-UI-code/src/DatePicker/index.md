@@ -4,7 +4,8 @@ nav:
   title: 通用
   path: /common
 group:
-  path: /common
+  title: 时间
+
 ---
 
 # DatePicker 日期选择器
