@@ -1,4 +1,4 @@
-import React, { FC, useMemo, memo } from 'react';
+import React, {FC, useMemo, memo} from 'react';
 import './index.module.less';
 
 interface dividerProps {
@@ -23,8 +23,9 @@ interface dividerProps {
    */
   dashed?: Boolean;
 }
+
 const Divider: FC<dividerProps> = memo((props) => {
-  const { children, fontSize, borderColor, align, dashed } = props;
+  const {children, fontSize, borderColor, align, dashed} = props;
   const lineAlign = useMemo(() => {
     if (align === 'left') {
       return {
@@ -54,7 +55,7 @@ const Divider: FC<dividerProps> = memo((props) => {
   }, [fontSize]);
   return (
     <div className="divider">
-      <div className={dashed ? 'dashed' : 'line'} style={{ ...lineAlign, ...lineColor }}>
+      <div className={dashed ? 'dashed' : 'line'} style={{...lineAlign, ...lineColor}}>
         {children && (
           <span className="line-text" style={textStyle}>
             {children}

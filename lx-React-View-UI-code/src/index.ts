@@ -12,4 +12,5 @@ export { default as Rating } from './Rating';
 export { default as BackToTop } from './BackToTop';
 export { default as Message } from './Message';
 export { default as Divider } from './Divider';
+export { default as Overlay } from './Overlay';
 
