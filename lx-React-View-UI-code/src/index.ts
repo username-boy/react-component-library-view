@@ -11,4 +11,5 @@ export { default as LazyLoad } from './LazyLoad';
 export { default as Rating } from './Rating';
 export { default as BackToTop } from './BackToTop';
 export { default as Message } from './Message';
+export { default as Divider } from './Divider';
 

@@ -4,7 +4,7 @@ nav:
   title: 通用
   path: /common
 group:
-  path: /common
+  title: 菜单
 ---
 
 # Select 下拉菜单
