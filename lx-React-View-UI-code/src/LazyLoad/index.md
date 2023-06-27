@@ -1,10 +1,10 @@
 ---
 title: LazyLoad 懒加载
 nav:
-  title: 通用
+  title: lazyLoad
   path: /common
 group:
-  path: /common
+  title: 性能优化
 ---
 
 # LazyLoad 懒加载

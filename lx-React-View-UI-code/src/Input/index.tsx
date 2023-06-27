@@ -108,21 +108,21 @@ const Input: FC<InputProps & NativeInputProps> = (props) => {
       handleIptChange(e.target.value);
     }
   };
-  const blurIpt = (e: any) => {
-    //失去焦点
-    if (type === 'num' && Number(iptValue) == NaN) {
-      setIptValue('');
-    }
-    handleIptBlur && handleIptBlur();
-  };
+  // const blurIpt = (e: any) => {
+  //   //失去焦点
+  //   if (type === 'num' && Number(iptValue) == NaN) {
+  //     setIptValue('');
+  //   }
+  //   handleIptBlur && handleIptBlur();
+  // };
   const focusIpt = () => {
     handleIptFocus && handleIptFocus(iptValue);
   };
   const addNum = () => {
     //加
-    if (type === 'num' && Number(iptValue) == NaN) {
-      return setIptValue('');
-    }
+    // if (type === 'num' && Number(iptValue) == NaN) {
+    //   return setIptValue('');
+    // }
     const stepNum = step || 1;
     if (step && max && Number(iptValue) + stepNum > max) {
       handleNumChange && handleNumChange(max);
@@ -137,9 +137,9 @@ const Input: FC<InputProps & NativeInputProps> = (props) => {
   };
   const lowNum = () => {
     //减
-    if (type === 'num' && Number(iptValue) == NaN) {
-      return setIptValue('');
-    }
+    // if (type === 'num' && Number(iptValue) == NaN) {
+    //   return setIptValue('');
+    // }
     const stepNum = step || 1;
     if (step && min && Number(iptValue) - stepNum < min) {
       handleNumChange && handleNumChange(min);
@@ -170,7 +170,7 @@ const Input: FC<InputProps & NativeInputProps> = (props) => {
         placeholder={placeholder}
         value={defaultValue || iptValue}
         onChange={changeIpt}
-        onBlur={blurIpt}
+        // onBlur={blurIpt}
         onFocus={focusIpt}
         onKeyUp={(e) => handleKeyDown && handleKeyDown(e)}
       />

@@ -55,7 +55,6 @@ type NativeButtonProps = Omit<React.ButtonHTMLAttributes<HTMLElement>, 'type'>; 
 
 const Button: FC<ButtonProps & NativeButtonProps> = memo((props) => {
   const {type, width, height, disabled, circle, dashed, loading, onClick, children} = props;
-
   const buttonStyle = useMemo(() => {
     if (!type && type !== 'danger' && type !== 'warning' && type !== 'warning' && type !== 'text') {
       return 'primary';

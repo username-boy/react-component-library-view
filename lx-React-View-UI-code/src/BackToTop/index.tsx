@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 
-interface ScrollToTopProps {
+export interface ScrollToTopProps {
   /**
    * @description 向下滑动的值
    */
@@ -13,7 +13,7 @@ interface ScrollToTopProps {
 
 const ScrollToTop: React.FC<ScrollToTopProps> = (props) => {
   const {showUnder, style, ...restProps} = props
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(false); // 按钮的显示隐藏条件
 
   const handleScroll = () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;

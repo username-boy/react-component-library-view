@@ -9,4 +9,6 @@ export { default as Pagination } from './Pagination';
 export { default as Radio } from './Radio';
 export { default as LazyLoad } from './LazyLoad';
 export { default as Rating } from './Rating';
+export { default as BackToTop } from './BackToTop';
+export { default as Message } from './Message';
 

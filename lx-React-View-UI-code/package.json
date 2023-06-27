@@ -1,7 +1,15 @@
 {
-  "name": "react-view-ui",
-  "version": "1.3.2",
+  "name": "react-component-library-view-ui-lx",
+  "version": "1.3.7",
+  "description": "react-component-library-view(simplify-version)",
+  "author": "li-xiang",
   "license": "MIT",
+  "keywords": [
+    "component",
+    "react",
+    "lx",
+    "ts"
+  ],
   "scripts": {
     "start": "dumi dev",
     "docs:build": "dumi build",
@@ -10,9 +18,9 @@
     "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
     "test": "umi-test",
     "test:coverage": "umi-test --coverage",
-    "prepublishOnly": "npm run haha",
+    "prepublishOnly": "npm run lx",
     "deploy": "gh-pages -d docs-dist",
-    "haha": "rollup -c rollup.config.js"
+    "lx": "rollup -c rollup.config.js"
   },
   "module": "es/index.js",
   "typings": "es/index.d.ts",
@@ -36,10 +44,11 @@
     "@rollup/plugin-commonjs": "^21.1.0",
     "@rollup/plugin-node-resolve": "^13.2.1",
     "@rollup/plugin-typescript": "^8.3.2",
-    "antd": "^4.19.5",
-    "core-js": "^3.22.2",
+    "antd": "^4.24.10",
+    "core-js": "^3.31.0",
     "lodash": "^4.17.21",
-    "react": "^16.12.0 || ^17.0.0",
+    "react": "^16.12.0 || ^17.0.0 || >=18.0.0",
+    "react-dom": "^16.12.0 || ^17.0.0 ||>=18.0.0",
     "react-view-ui": "^1.2.16",
     "rollup": "^2.70.2",
     "rollup-plugin-clear": "^2.0.7",
