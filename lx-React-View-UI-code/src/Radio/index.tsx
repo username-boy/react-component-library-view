@@ -1,6 +1,7 @@
 import React, { FC, memo } from 'react';
 
 interface RadioProps {
+  // 显示的内容
   children: any;
   /**
    * @description 默认选中索引
