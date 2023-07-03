@@ -1,5 +1,5 @@
-import React, { FC, useMemo, createRef, useEffect, useState, useCallback, memo } from 'react';
-import { DownOutlined, LoadingOutlined, CloseOutlined } from '@ant-design/icons';
+import React, {FC, useMemo, createRef, useEffect, useState, useCallback, memo} from 'react';
+import {DownOutlined, LoadingOutlined, CloseOutlined} from '@ant-design/icons';
 import './index.module.less';
 
 interface Options {
@@ -7,6 +7,7 @@ interface Options {
   value: String | number;
   disabled?: Boolean;
 }
+
 interface SelectProps {
   /**
    * @description 选择器数据
@@ -134,7 +135,7 @@ const Select: FC<SelectProps> = (props) => {
         option.filter((item) => {
           return (item.label as string).includes(e.target.value);
         }).length *
-          100 +
+        100 +
         '%';
       if (handleTextChange) {
         handleTextChange(e.target.value);
@@ -145,7 +146,7 @@ const Select: FC<SelectProps> = (props) => {
 
   return showSearch ? (
     <>
-      <div className="select" style={{ ...ownsWidth, ...disabledStyle }}>
+      <div className="select" style={{...ownsWidth, ...disabledStyle}}>
         <div className="selected">
           <input
             type="text"
@@ -156,9 +157,9 @@ const Select: FC<SelectProps> = (props) => {
             onChange={(e) => handleInputChange(e)}
           />
           {clearable ? (
-            <CloseOutlined onClick={() => setSelected('')} />
+            <CloseOutlined onClick={() => setSelected('')}/>
           ) : (
-            <DownOutlined onClick={toggleOptions} />
+            <DownOutlined onClick={toggleOptions}/>
           )}
         </div>
         <div className="selectOptions" style={ownsWidth} ref={optionRef}>
@@ -168,7 +169,7 @@ const Select: FC<SelectProps> = (props) => {
                 key={s.label as any}
                 className="option"
                 style={
-                  s.disabled ? { cursor: 'not-allowed', background: 'rgb(238, 238, 238)' } : {}
+                  s.disabled ? {cursor: 'not-allowed', background: 'rgb(238, 238, 238)'} : {}
                 }
                 onClick={(e) => changeOptions(s as Options, e)}
               >
@@ -180,14 +181,14 @@ const Select: FC<SelectProps> = (props) => {
       </div>
     </>
   ) : (
-    <div className="select" style={{ ...ownsWidth, ...disabledStyle }}>
+    <div className="select" style={{...ownsWidth, ...disabledStyle}}>
       <div className="selected" onClick={toggleOptions}>
         {selected ? (
           <div className="size">{selected}</div>
         ) : (
-          (placeholder && <div className="placeholder">{placeholder}</div>) || <div />
+          (placeholder && <div className="placeholder">{placeholder}</div>) || <div/>
         )}
-        {loading ? <LoadingOutlined /> : <DownOutlined />}
+        {loading ? <LoadingOutlined/> : <DownOutlined/>}
       </div>
       <div className="selectOptions" style={ownsWidth} ref={optionRef}>
         {option.map((s) => {
@@ -195,7 +196,7 @@ const Select: FC<SelectProps> = (props) => {
             <div
               key={s.label as any}
               className="option"
-              style={s.disabled ? { cursor: 'not-allowed', background: 'rgb(238, 238, 238)' } : {}}
+              style={s.disabled ? {cursor: 'not-allowed', background: 'rgb(238, 238, 238)'} : {}}
               onClick={(e) => changeOptions(s as Options, e)}
             >
               {s.label}
