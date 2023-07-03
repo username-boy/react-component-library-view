@@ -26,7 +26,7 @@ export default defineConfig({
   navs: [
     null,
     {
-      title: 'GitHub',
+      title: '联系我',
       path: 'https://github.com/username-boy/react-component-library-view',
     },
   ],
