@@ -1,4 +1,4 @@
-import React, { FC, memo, useEffect, useState } from 'react';
+import React, {FC, memo, useEffect, useState} from 'react';
 import './index.module.less';
 
 interface AffixProps {
@@ -37,6 +37,7 @@ interface AffixProps {
    */
   style?: Object;
 }
+
 interface offsetProps {
   left?: number | string;
   right?: number | string;
@@ -44,8 +45,9 @@ interface offsetProps {
   bottom?: number | string;
   position?: string;
 }
+
 const Affix: FC<AffixProps> = (props) => {
-  const { children, affixType, offsetTop, offsetLeft, offsetBottom, offsetRight, style } = props;
+  const {children, affixType, offsetTop, offsetLeft, offsetBottom, offsetRight, style} = props;
 
   const [affixElOffset, setAffixElOffset] = useState<offsetProps>({});
   let io: IntersectionObserver; //观察者
@@ -140,7 +142,7 @@ const Affix: FC<AffixProps> = (props) => {
   return (
     <div
       className="affix"
-      style={{ ...(affixElOffset as React.HtmlHTMLAttributes<any>), ...style }}
+      style={{...(affixElOffset as React.HtmlHTMLAttributes<any>), ...style}}
     >
       {children}
     </div>
