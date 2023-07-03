@@ -2,6 +2,9 @@ import React, {FC, useMemo, memo} from 'react';
 import './index.module.less';
 
 interface dividerProps {
+  /**
+   *@description 显示的内容
+   */
   children?: any;
   /**
    * @description 字体大小
@@ -26,6 +29,7 @@ interface dividerProps {
 
 const Divider: FC<dividerProps> = memo((props) => {
   const {children, fontSize, borderColor, align, dashed} = props;
+  // 分割线对齐的方式
   const lineAlign = useMemo(() => {
     if (align === 'left') {
       return {
@@ -38,6 +42,7 @@ const Divider: FC<dividerProps> = memo((props) => {
     }
     return {};
   }, [align]);
+  // 分割线的颜色
   const lineColor = useMemo((): Object => {
     if (borderColor) {
       return {
@@ -46,6 +51,7 @@ const Divider: FC<dividerProps> = memo((props) => {
     }
     return {};
   }, [borderColor]);
+  // 分割线的文本样式
   const textStyle = useMemo(() => {
     if (fontSize) {
       return {
