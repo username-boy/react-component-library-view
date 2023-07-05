@@ -108,21 +108,12 @@ const Input: FC<InputProps & NativeInputProps> = (props) => {
       handleIptChange(e.target.value);
     }
   };
-  // const blurIpt = (e: any) => {
-  //   //失去焦点
-  //   if (type === 'num' && Number(iptValue) == NaN) {
-  //     setIptValue('');
-  //   }
-  //   handleIptBlur && handleIptBlur();
-  // };
+  // 文本框聚焦
   const focusIpt = () => {
     handleIptFocus && handleIptFocus(iptValue);
   };
+  // 数字输入框的逻辑
   const addNum = () => {
-    //加
-    // if (type === 'num' && Number(iptValue) == NaN) {
-    //   return setIptValue('');
-    // }
     const stepNum = step || 1;
     if (step && max && Number(iptValue) + stepNum > max) {
       handleNumChange && handleNumChange(max);
@@ -136,10 +127,7 @@ const Input: FC<InputProps & NativeInputProps> = (props) => {
     setIptValue(Number(iptValue) + stepNum);
   };
   const lowNum = () => {
-    //减
-    // if (type === 'num' && Number(iptValue) == NaN) {
-    //   return setIptValue('');
-    // }
+
     const stepNum = step || 1;
     if (step && min && Number(iptValue) - stepNum < min) {
       handleNumChange && handleNumChange(min);
@@ -148,12 +136,14 @@ const Input: FC<InputProps & NativeInputProps> = (props) => {
     handleNumChange && handleNumChange(Number(iptValue) - stepNum);
     setIptValue(Number(iptValue) - stepNum);
   };
+  // 输入框类型逻辑  password  || text
   const iptType = useMemo(() => {
     if (showTogglePwd && type === 'password') {
       return pwdIptState ? 'password' : 'text';
     }
     return type || 'text';
   }, [type, showTogglePwd, pwdIptState]);
+  // 输入框样式
   const exticStyle = useMemo(() => {
     let style = {width: '170px'};
     if (width) {
@@ -170,7 +160,6 @@ const Input: FC<InputProps & NativeInputProps> = (props) => {
         placeholder={placeholder}
         value={defaultValue || iptValue}
         onChange={changeIpt}
-        // onBlur={blurIpt}
         onFocus={focusIpt}
         onKeyUp={(e) => handleKeyDown && handleKeyDown(e)}
       />

@@ -2,9 +2,9 @@
 title: Layout 快速布局
 nav:
   title: 视图
-  path: /view
+  path: /common
 group:
-  path: /view
+  title: 视图
 ---
 
 # Layout 快速布局
