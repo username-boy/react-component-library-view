@@ -1,5 +1,5 @@
-import React, { FC, useState, useEffect, memo, useCallback, useMemo } from 'react';
-import { CaretUpOutlined, CaretDownOutlined } from '@ant-design/icons';
+import React, {FC, useState, useEffect, memo, useCallback, useMemo} from 'react';
+import {CaretUpOutlined, CaretDownOutlined} from '@ant-design/icons';
 import './index.module.less';
 
 interface MenuProps {
@@ -33,6 +33,7 @@ interface MenuProps {
    */
   handleRouteChange?: Function;
 }
+
 interface MenuHeightProps {
   key: string;
   height: string;
@@ -40,6 +41,7 @@ interface MenuHeightProps {
   level: number | number;
   children?: Array<Object>;
 }
+
 interface RenderOptions {
   label: string;
   key: string | number;
@@ -53,7 +55,7 @@ const Menu: FC<MenuProps> = (props) => {
   const [nowActiveKey, setNowActiveKey] = useState(''); //选中的子菜单key
   const [parentMenuHeightList, setParentMenuHeightList] = useState<any>({}); //父菜单高度集合
 
-  const { items, width, dark, ableToggle, defaultOpen, handleRouteChange } = props;
+  const {items, width, dark, ableToggle, defaultOpen, handleRouteChange} = props;
 
   useEffect(() => {
     const initList = initParentMenuHeight(items, {}, '');
@@ -113,7 +115,7 @@ const Menu: FC<MenuProps> = (props) => {
     //点击父级菜单
     e.stopPropagation();
     const selectKey = fMenu.key;
-    const refreshObject = { ...parentMenuHeightList };
+    const refreshObject = {...parentMenuHeightList};
     refreshObject[selectKey].height =
       refreshObject[selectKey].height == '50px'
         ? (refreshObject[selectKey].childNum + 1) * 50 + 'px'
@@ -148,7 +150,7 @@ const Menu: FC<MenuProps> = (props) => {
     }
     if (cMenu.level == 2) {
       //二级菜单扩展切换
-      const refreshObject = { ...parentMenuHeightList };
+      const refreshObject = {...parentMenuHeightList};
       for (var key in refreshObject) {
         if (
           refreshObject[key].children &&
@@ -269,7 +271,7 @@ const Menu: FC<MenuProps> = (props) => {
           <div key={m.key}>
             <div
               className={nowActiveKey == m.key ? 'activeMenuOptions' : 'childMenuOptions'}
-              style={{ ...childMenuHeight(m.key) }}
+              style={{...childMenuHeight(m.key)}}
             >
               <div
                 className={
@@ -283,9 +285,9 @@ const Menu: FC<MenuProps> = (props) => {
                 <span>{m.label}</span>
                 {m.children &&
                   (childMenuHeight(m.key).height == '50px' ? (
-                    <CaretDownOutlined />
+                    <CaretDownOutlined/>
                   ) : (
-                    <CaretUpOutlined />
+                    <CaretUpOutlined/>
                   ))}
               </div>
               <div className="childMenuOptions" key={m.key}>
@@ -313,9 +315,9 @@ const Menu: FC<MenuProps> = (props) => {
                   <span>{m.label}</span>
                 </div>
                 {firstMenuHeight(m.key).height == '50px' ? (
-                  <CaretDownOutlined />
+                  <CaretDownOutlined/>
                 ) : (
-                  <CaretUpOutlined />
+                  <CaretUpOutlined/>
                 )}
               </div>
               <>{m.children && renderChildOptions(m)}</>

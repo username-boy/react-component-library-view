@@ -27,7 +27,7 @@ export default defineConfig({
     null,
     {
       title: '联系我',
-      path: 'https://github.com/username-boy/react-component-library-view',
+      path: 'https://github.com/username-boy',
     },
   ],
 });
