@@ -28,6 +28,7 @@ export default {
   plugins: [
     typescript(), // 会自动读取 文件tsconfig.json配置
     less({ output: './dist/index.css' }),
+    // less({ output: './docs-dist/umi.css' }),
     clear({
       targets: ['dist'],
     }),
