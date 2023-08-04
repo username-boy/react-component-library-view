@@ -16,6 +16,8 @@ export {default as Overlay} from './Overlay';
 export {default as Tabs} from './Tabs/Tabs';
 export {default as Switch} from './Switch';
 export {default as Loading} from './Loading';
+export {default as Table} from './Table';
+export {default as InputNumber} from './InputNumber';
 
 
 
