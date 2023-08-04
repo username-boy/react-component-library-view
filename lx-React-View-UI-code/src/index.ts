@@ -15,6 +15,7 @@ export {default as Divider} from './Divider';
 export {default as Overlay} from './Overlay';
 export {default as Tabs} from './Tabs/Tabs';
 export {default as Switch} from './Switch';
+export {default as Loading} from './Loading';
 
 
 
