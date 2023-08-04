@@ -31,6 +31,3 @@ Build library via `father-build`,
 ```bash
 $ npm run build
 ```
-
-
-
